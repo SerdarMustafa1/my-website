@@ -21,7 +21,7 @@ jobs:
 
     - name: Deploy to S3
       run: |
-        echo "aws s3 sync . s3://${{ secrets.S3_BUCKET }} --exclude '.git/*' --exclude 'node_modules/*' --exclude '.github/*' --delete" > s3_sync.sh
+        printf "aws s3 sync . s3://${{ secrets.S3_BUCKET }} --exclude '.git/*' --exclude 'node_modules/*' --exclude '.github/*' --delete" > s3_sync.sh
         bash s3_sync.sh
 
     - name: Invalidate CloudFront Cache
