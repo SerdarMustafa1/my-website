@@ -20,7 +20,6 @@ body {
   background-color: #0056b3;
 }
 
-
 .section-title {
   color: #0056b3; /* Deep blue for main titles */
   font-size: 20px;
@@ -46,7 +45,7 @@ body {
 }
 
 .bullet-point li::before {
-  content: '•';
+  content: "•";
   color: #007bff; /* Blue bullet points */
   position: absolute;
   left: 0;
@@ -82,7 +81,8 @@ body {
   text-align: left;
 }
 
-.header-title h1, .header-subtitle {
+.header-title h1,
+.header-subtitle {
   margin: 0; /* Removes default margin */
 }
 
@@ -95,15 +95,31 @@ body {
   text-decoration: underline;
 }
 
-
-
 /* Responsive Design for smaller screens */
 @media screen and (max-width: 768px) {
   body {
-      padding: 15px;
+    padding: 15px;
   }
 
-  .section-title, .sub-section-title {
-      font-size: 18px;
+  .section-title,
+  .sub-section-title {
+    font-size: 18px;
+  }
+}
+
+.skills-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.skills-section {
+  flex: 1; /* Each section takes an even amount of space */
+  padding: 0 20px; /* Add some padding for spacing, adjust as needed */
+}
+
+/* Optional: Ensure no wrapping occurs on smaller screens */
+@media (max-width: 768px) {
+  .skills-container {
+    flex-direction: column;
   }
 }
