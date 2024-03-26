@@ -20,7 +20,13 @@ jobs:
         aws-region: ${{ secrets.AWS_REGION }}
 
     - name: Deploy to S3
-      run: aws s3 sync . s3://${{ secrets.S3_BUCKET }} --exclude '.git/*' --exclude '*.DS_Store' --exclude '.github/*' --exclude '*.gitignore' --delete
+      run: |
+        aws s3 sync . s3://${{ secrets.S3_BUCKET }} --delete \
+          --exclude '*' \
+          --include 'LICENSE' \
+          --include 'README.md' \
+          --include 'index.html' \
+          --include 'styles.css'
 
     - name: Invalidate CloudFront Cache
       run: |
